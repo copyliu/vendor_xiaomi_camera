@@ -40,45 +40,19 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libgui-xiaomi",
-    owner: "xiaomi",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: ["proprietary/system/lib64/libgui-xiaomi.so"],
-            shared_libs: [
-                "libbinder_shim",
-                "android.hardware.graphics.common-V7-ndk",  // Use V7 only
-                "android.hardware.graphics.mapper@4.0",
-                "libgralloctypes",
-                "android.hardware.graphics.bufferqueue@1.0",
-                "android.hardware.graphics.bufferqueue@2.0",
-                "android.hardware.graphics.common@1.1",
-                "android.hardware.graphics.common@1.2",
-                "android.hidl.token@1.0-utils",
-                "libbase",
-                "libcutils",
-                "libEGL",
-                "libGLESv2",
-                "libhidlbase",
-                "liblog",
-                "libnativewindow",
-                "libsync",
-                "libui",
-                "libutils",
-                "libvndksupport",
-                "libbinder",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
+	name: "libgui-xiaomi",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/system/lib64/libgui-xiaomi.so"],
+			shared_libs: ["libvndksupport", "libgralloctypes", "android.hardware.graphics.mapper@4.0", "android.hardware.graphics.common-V7-ndk", "android.hardware.graphics.bufferqueue@1.0", "android.hardware.graphics.bufferqueue@2.0", "android.hardware.graphics.common@1.1", "android.hardware.graphics.common@1.2", "android.hidl.token@1.0-utils", "libbase", "libcutils", "libEGL", "libhidlbase", "liblog", "libnativewindow", "libsync", "libui", "libutils", "libbinder", "libGLESv2", "libc++", "libc", "libm", "libdl", ],
+		},
+	},
+	compile_multilib: "64",
+	prefer: true,
 }
 
 cc_prebuilt_library_shared {
@@ -90,7 +64,7 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm64: {
 			srcs: ["proprietary/system/lib64/libmicampostproc_client.so"],
-			shared_libs: ["liblog", "libutils", "libcutils", "libhardware", "libnativewindow", "libEGL", "libGLESv2", "libfmq", "libgui", "libui", "libcamera_client", "libcamera_metadata", "libmedia_jni_utils", "libnativehelper", "libhidlbase", "libhidltransport", "vendor.xiaomi.hardware.campostproc@1.0_system", "libc++", "libc", "libm", "libdl", ],
+			shared_libs: ["liblog", "libutils", "libcutils", "libhardware", "libnativewindow", "libEGL", "libGLESv2", "libfmq", "libgui", "libui", "libcamera_client", "libcamera_metadata", "libmedia_jni_utils", "libnativehelper", "libhidlbase", "vendor.xiaomi.hardware.campostproc@1.0_system", "libc++", "libc", "libm", "libdl", ],
 		},
 	},
 	compile_multilib: "64",
@@ -125,7 +99,6 @@ android_app_import {
 	},
 	privileged: true,
 }
-
 
 cc_prebuilt_library_shared {
     name: "libquickcamera",
